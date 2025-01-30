@@ -7,24 +7,36 @@
 //Teste larissa
 
 int main() {
-    char nome[50];
+    char estado;
+    char codigo[20];
+    char nomedacidade[50];
     int populacao;
     float area;
     float pib;
-    int pontos_turisticos;
+    int pontosturisticos;
     
-    printf("Nome do estado: \n");
-    scanf("%s", &nome);
+    printf("Estado: \n");
+    scanf("%c", &estado);
+
+    printf("Código da carta: \n");
+    scanf("%s ", &codigo);
+
+    printf("Nomde da cidade: \n");
+    scanf("%s ", &nomedacidade);
 
     printf("População: \n");
-    scanf("%d \n", &populacao);
+    scanf("%d", &populacao);
 
     printf("Área em km²: \n");
-    scanf("%f \n", &area);
+    scanf("%f ", &area);
     
     printf("PIB: \n");
-    scanf("%f \n", &pib);
-    
+    scanf("%f ", &pib);
+
+    printf("Número de pontos turísticos: \n");
+    scanf("%d \n", &pontosturisticos);
+
+
     printf("Cadastro realizado com sucesso!");
 
 
