@@ -10,10 +10,24 @@ int main() {
     char nome[50];
     int populacao;
     float area;
-    float PIB;
-    int pontosturisticos;
-
+    float pib;
+    int pontos_turisticos;
     
+    printf("Nome do estado: \n");
+    scanf("%s", &nome);
+
+    printf("População: \n");
+    scanf("%d \n", &populacao);
+
+    printf("Área em km²: \n");
+    scanf("%f \n", &area);
+    
+    printf("PIB: \n");
+    scanf("%f \n", &pib);
+    
+    printf("Cadastro realizado com sucesso!");
+
+
      
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
