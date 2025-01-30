@@ -6,7 +6,7 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
-    char estado[2];
+    char estado[4];
     char codigo[20];
     char nomedacidade[50];
     int populacao;
@@ -14,18 +14,17 @@ int main() {
     float pib;
     int pontosturisticos;
 
-    // Leitura do estado (um único caractere)
+    // Leitura do estado
     printf("\nEstado: ");
-    scanf("%s", &estado);  // O espaço antes de %c resolve o problema do caractere '\n' no buffer
+    scanf("%s", &estado);
         
     // Leitura do código da carta (sem espaços)
     printf("\nCódigo da carta: ");
-    scanf("%s", &codigo);  // O uso de %s é adequado para ler strings simples sem espaços
+    scanf("%s", &codigo);
 
-    // Leitura do nome da cidade (permitindo espaços)
+    // Leitura do nome da cidade
     printf("\nNome da cidade: ");
-    scanf("%s", &nomedacidade);  // Usando fgets para permitir espaços
-
+    scanf("%s", &nomedacidade);  
     // Leitura da população
     printf("\nPopulação: ");
     scanf("%d", &populacao);
