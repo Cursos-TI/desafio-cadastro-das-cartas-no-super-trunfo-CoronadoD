@@ -6,25 +6,22 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
-    char estado[4];
-    char codigo[20];
-    char nomedacidade[50];
+    char estado;
+    char codigo[3]; // Exemplo: "A1", "B3"
+    int cidade;
     int populacao;
     float area;
     float pib;
     int pontosturisticos;
 
     // Leitura do estado
-    printf("\nEstado: ");
-    scanf("%s", &estado);
-        
-    // Leitura do código da carta (sem espaços)
-    printf("\nCódigo da carta: ");
-    scanf("%s", &codigo);
+    printf("\n Digite a letra do estado (A-H): ");
+    scanf(" %c", &estado);
 
-    // Leitura do nome da cidade
-    printf("\nNome da cidade: ");
-    scanf("%s", &nomedacidade);  
+    // Leitura da cidade
+    printf("\n Digite o número da cidade (1=4): ");
+    scanf(" %d", &cidade);  
+
     // Leitura da população
     printf("\nPopulação: ");
     scanf("%d", &populacao);
@@ -40,15 +37,17 @@ int main() {
     // Leitura do número de pontos turísticos
     printf("\nNúmero de pontos turísticos: ");
     scanf("%d", &pontosturisticos);
-
+ 
     // Exibição do cadastro realizado
-    printf("\nCadastro realizado com sucesso!\n");
+    printf("\nCarta cadastrada com sucesso!\n");
 
     // Exibição dos dados cadastrados
-    printf("\nDados cadastrados:\n");
-    printf("Estado: %s\n", estado);
-    printf("Código da carta: %s\n", codigo);
-    printf("Nome da cidade: %s\n", nomedacidade);
+    printf("\nDados cadastrados\n");
+
+    printf("Código da carta: %c%d \n", estado, cidade);
+
+    printf("Estado: %c\n", estado);
+    printf("Número da cidade: %d\n", cidade);
     printf("População: %d\n", populacao);
     printf("Área em km²: %.2f\n", area);
     printf("PIB: %.2f\n", pib);
