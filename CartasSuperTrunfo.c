@@ -7,7 +7,7 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
 // Siga os comentários para implementar cada parte do desafio.
 
-int main() {
+typedef struct {
     // Gerar código da carta
     char estado; // Exemplo: "A", "B"
     int cidade; // Exemplo: "1", "3"
@@ -21,50 +21,67 @@ int main() {
     float pib; // Exemplo: 699.28
     float pib_per_capita; // Exemplo: Tem que gerar como resultado 56749
     int pontosturisticos; // Exemplo: 50
+} Carta;
 
-    // Leitura do estado
-    printf("\n Digite a letra do estado (A-H): ");
-    scanf(" %c", &estado);
+void cadastrarCartas(Carta cartas[], int *quantidade) {
+    printf("\nCadastro de Cartas do Super Trunfo - Países\n");
+    for (int i = 0; i < MAX_CARTAS; i++) {
+        printf("\nCadastro da carta %d:\n", i + 1);
 
-    // Leitura da cidade
-    printf("\n Digite o número da cidade (1=4): ");
-    scanf(" %d", &cidade);  
+        // Leitura do estado
+        printf("\n Digite a letra do estado (A-H): ");
+        scanf(" %c", cartas[i].estado);
 
-    // Leitura do nome da cidade
-    printf("\n Digite o nome da cidade:");
-    scanf(" %s", &nome);
+            // Leitura da cidade
+        printf("\n Digite o número da cidade (1=4): ");
+        scanf(" %d", cartas[i].cidade);  
 
-    // Leitura da população
-    printf("\n Digite a população: ");
-    scanf("%d", &populacao);
+            // Leitura do nome da cidade
+         printf("Digite o nome da cidade: ");
+        scanf("%s", cartas[i].nome);
 
-    // Leitura da área
-    printf("\n Digite a área em km²: ");
-    scanf("%f", &area);
+            // Leitura da população
+        printf("População (em milhões): ");
+        scanf("%d", &cartas[i].populacao);
 
-    // Leitura do PIB
-    printf("\n Digite o PIB: ");
-    scanf("%f", &pib);
+            // Leitura da área
+        printf("Área (em milhões de km²): ");
+        scanf("%f", &cartas[i].area);
 
-    // Leitura do número de pontos turísticos
-    printf("\ndigite o número de pontos turísticos: ");
-    scanf("%d", &pontosturisticos);
+        
+         // Leitura do número de pontos turísticos
+        printf("\ndigite o número de pontos turísticos: ");
+        scanf("%d", cartas[i].pontosturisticos);
  
-    // Exibição do cadastro realizado
-    printf("\nCarta cadastrada com sucesso!\n");
+            // Leitura do PIB
+        printf("PIB (em trilhões de dólares): ");
+        scanf("%d", &cartas[i].pib);
 
-    // Exibição dos dados cadastrados
-    printf("Os dados cadastrados são: \n");
+        printf("IDH (de 0 a 1, multiplicado por 1000): ");
+        scanf("%f", &cartas[i].pib_per_capita);
+        (*quantidade)++;
+    }
+}
+    void exibirCartas(Carta cartas[], int quantidade) {
+    printf("\nCartas cadastradas:\n");
+    for (int i = 0; i < quantidade; i++) {
+        printf("\nCarta %d:\n", i + 1);
+        printf("Nome: %s\n", cartas[i].nome);
+        printf("População: %d milhões\n", cartas[i].populacao);
+        printf("Área: %.2f milhões de km²\n", cartas[i].area);
+        printf("PIB: %d trilhões de dólares\n", cartas[i].pib);
+        printf("IDH: %.3f\n", cartas[i].idh / 1000.0);
+    }
+}
 
-    printf("Estado: %c\n", estado);
-    printf("Código da carta: %c%d \n", estado, cidade);
-    printf("Nome da cidade: %s\n", nome);
-    printf("População: %d\n", populacao);
-    printf("Área em km²: %.2f\n", area);
-    printf("Densidade Populacional: %.2f\n", densidade_populacional);
-    printf("PIB: %.2f\n", pib);
-    printf("PIB per Capita: %.2f\n", pib_per_capita);
-    printf("Número de pontos turísticos: %d\n", pontosturisticos);
+int main() {
+    Carta cartas[MAX_CARTAS];
+    int quantidade = 0;
+
+    cadastrarCartas(cartas, &quantidade);
+    exibirCartas(cartas, quantidade);
+
+    
 
     return 0;
 }
