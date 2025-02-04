@@ -22,6 +22,7 @@ typedef struct {
     float pib; // Exemplo: 699.28
     float pib_per_capita; // Exemplo: Tem que gerar como resultado 56749
     int pontosturisticos; // Exemplo: 50
+    float super_poder // Exemplo: Comparação das cartas
 } Cidade;
 
 void calcularDados(Cidade *cidade) {
@@ -36,6 +37,14 @@ void calcularDados(Cidade *cidade) {
     } else {
         cidade->pib_per_capita = 0;
     }
+
+    if (cidade->super_poder > 0 ){
+        cidade->populacao + cidade->area + cidade->pib + cidade->pontosturisticos + cidade->densidade_populacional + cidade->pib_per_capita;
+    } else {
+        cidade->super_poder = 0;
+
+    }
+
 }
 
 void cadastrarCidade(Cidade cidades[], int *total) {
@@ -90,7 +99,38 @@ void listarCidades(Cidade cidades[], int total) {
         printf("Pontos turisticos: %d\n", cidades[i].pontosturisticos);
         printf("Densidade Populacional: %.2f habitantes/km²\n", cidades[i].densidade_populacional);
         printf("PIB per Capita: %.2f bilhões/habitante\n", cidades[i].pib_per_capita);
+        printf("Super Poder: %.2f\n", cidades[i].super_poder);
     }
+}
+
+void CompararCidades(Cidade Cidade[], int total){
+    if (total < 2){
+        printf("\nNecessário ter pelo menos duas cidades cadastradas para comparar!\n");
+        return;
+    }
+
+    int c1, c2;
+    printf("\nDigite os indices das duas cidades (1 a %d): ", total);
+    scanf("%d %d", &c1, &c2);
+
+    if (c1 < 1 || c1 > total || c2 < 1 || c2 > total || c1 == c2){
+        printf("\nIndices inválidos!\n");
+        return;
+    }
+
+    c1--; c2--;
+printf("\nComparação entre %s e %s: \n", Cidade[c1].nome, Cidade[c2].nome);
+printf("Super Poder de %s: %.2f\n", Cidade[c1].nome, Cidade[c1].super_poder);
+printf("Super Poder de %s: %.2f\n", Cidade[c2].nome, Cidade[c2].super_poder);
+
+if (Cidade[c1].super_poder > Cidade[c2].super_poder){
+    printf("%s Vence a comparação!\n", Cidade[c1].nome);
+} else
+if (Cidade[c2].super_poder > Cidade[c2].super_poder){
+    printf("%s Vence a comparação!\n", Cidade[c2].nome);
+} else {
+    printf("A comparação terminou em empate!\n");
+}
 }
 
 int main() {
@@ -101,7 +141,8 @@ int main() {
         printf("\nMenu:\n");
         printf("1 - Cadastrar cidade\n");
         printf("2 - Listar cidades\n");
-        printf("3 - Sair\n");
+        printf("3 - Comparar duas cidades\n");
+        printf("4 - Sair\n");
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
         
@@ -113,12 +154,15 @@ int main() {
                 listarCidades(cidades, total);
                 break;
             case 3:
+                CompararCidades(cidades, total);
+                break;    
+            case 4:
                 printf("Saindo do programa...\n");
                 break;
             default:
                 printf("Opção invalida! Tente novamente.\n");
         }
-    } while (opcao != 3);
+    } while (opcao != 4);
     
     return 0;
 }
