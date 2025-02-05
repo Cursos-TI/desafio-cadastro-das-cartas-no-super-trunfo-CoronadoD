@@ -1,13 +1,11 @@
 #include <stdio.h>
 
-#define MAX_CIDADES 100
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
 // Siga os comentários para implementar cada parte do desafio.
 
-typedef struct {
-
+int main() {
     // Gerar código da carta
     char estado; // Exemplo: "A", "B"
     int cidade; // Exemplo: "1", "3"
@@ -20,92 +18,49 @@ typedef struct {
     float pib; // Exemplo: 699.28
     float pib_per_capita; // Exemplo: Tem que gerar como resultado 56749
     int pontosturisticos; // Exemplo: 50
-    float super_poder // Exemplo: Comparação das cartas
-} Cidade;
+    float super_poder; // Exemplo: Comparação das cartas
 
 
-void cadastrarCidade(Cidade cidades[], int *total) {
-    if (*total >= MAX_CIDADES) {
-        printf("\nLimite de cidades atingido!\n");
-        return;
-    }
-    
-    printf("\nCadastro da cidade %d:\n", *total + 1);
-
-            // Leitura do estado
-    printf(" Digite a letra do estado (A-H): ");
-    scanf(" %c", &cidades[*total].estado);
-            // Leitura do número da cidade
+    // Leitura do estado
+    printf("\nDigite a letra do estado (A-H): ");
+    scanf("%s", &estado);
+   // Leitura do número da cidade
     printf(" Digite o número da cidade (1-4): ");
-    scanf(" %d", &cidades[*total].cidade);  
+    scanf(" %d", &cidade);  
 
-            // Leitura do nome da cidade
-    printf(" Digite o nome da cidade: ");
-    scanf(" %s", cidades[*total].nome);
-         // Leitura da população
-    printf(" Digite a população(em milhões): ");
-    scanf("%d", &cidades[*total].populacao);
-        // Leitura da área
-    printf(" Digite a área em milhões de km²: ");
-    scanf("%f", &cidades[*total].area);
-         // Leitura do PIB
-    printf(" Digite o PIB em bilhões: ");
-    scanf("%f", &cidades[*total].pib);
-         // Leitura do número de pontos turísticos
-    printf(" Digite o número de pontos turísticos:: ");
-    scanf("%d", &cidades[*total].pontosturisticos);
-    
-}
+    // Leitura do nome da cidade
+    printf("\nNome da cidade: ");
+    scanf("%s", &nome);  
+    // Leitura da população
+    printf("\nPopulação: ");
+    scanf("%d", &populacao);
 
-void listarCidades(Cidade cidades[], int total) {
-    if (total == 0) {
-        printf("\nNenhuma cidade cadastrada ainda!\n");
-        return;
-    }
-    
-    printf("\nLista de cidades cadastradas:\n");
-    for (int i = 0; i < total; i++) {
-        printf("\nCarta %d:\n", i + 1);
-        printf("Código da carta: %c%d \n", cidades[i].estado ,cidades[i].cidade);
-        printf("Nome: %s\n", cidades[i].nome);
-        printf("População: %d\n", cidades[i].populacao);
-        printf("Área: %.2f km²\n", cidades[i].area);
-        printf("PIB: %.2f bilhões\n", cidades[i].pib);
-        printf("Pontos turisticos: %d\n", cidades[i].pontosturisticos);
-        printf("Densidade Populacional: %.2f habitantes/km²\n", cidades[i].densidade_populacional);
-        printf("PIB per Capita: %.2f bilhões/habitante\n", cidades[i].pib_per_capita);
-        printf("Super Poder: %.2f\n", cidades[i].super_poder);
-    }
-}
+    // Leitura da área
+    printf("\nÁrea em km²: ");
+    scanf("%f", &area);
+
+    // Leitura do PIB
+    printf("\nPIB: ");
+    scanf("%f", &pib);
+
+    // Leitura do número de pontos turísticos
+    printf("\nNúmero de pontos turísticos: ");
+    scanf("%d", &pontosturisticos);
 
 
-int main() {
-    Cidade cidades[MAX_CIDADES];
-    int total = 0, opcao;
-    
-    do {
-        printf("\nMenu:\n");
-        printf("1 - Cadastrar cidade\n");
-        printf("2 - Listar cidades\n");
-        printf("3 - Comparar duas cidades\n");
-        printf("4 - Sair\n");
-        printf("Escolha uma opção: ");
-        scanf("%d", &opcao);
-        
-        switch (opcao) {
-            case 1:
-                cadastrarCidade(cidades, &total);
-                break;
-            case 2:
-                listarCidades(cidades, total);
-                break;
-            case 3:
-                printf("Saindo do programa...\n");
-                break;
-            default:
-                printf("Opção invalida! Tente novamente.\n");
-        }
-    } while (opcao != 3);
-    
+
+    // Exibição do cadastro realizado
+    printf("\nCadastro realizado com sucesso!\n");
+
+    // Exibição dos dados cadastrados
+    printf("\nDados cadastrados:\n");
+    printf("Estado: %c\n", estado);
+    printf("Código da carta: %c%d\n", estado, cidade);
+    printf("Nome da cidade: %s\n", nome);
+    printf("População: %d\n", populacao);
+    printf("Área em km²: %.2f\n", area);
+    printf("PIB: %.2f\n", pib);
+    printf("Número de pontos turísticos: %d\n", pontosturisticos);
+
     return 0;
 }
